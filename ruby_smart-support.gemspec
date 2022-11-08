@@ -30,4 +30,9 @@ DESC
   end
 
   spec.require_paths = ["lib"]
+
+  spec.add_development_dependency 'activesupport'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'simplecov',  '~> 0.21'
 end
