@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_smart-support (0.2.0)
+    ruby_smart-support (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -47,8 +47,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  rake
-  rspec
+  rake (~> 13.0)
+  rspec (~> 3.0)
   ruby_smart-support!
   simplecov (~> 0.21)
 
