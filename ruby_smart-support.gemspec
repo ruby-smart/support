@@ -8,14 +8,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tobias Gonsior"]
   spec.email         = ["info@ruby-smart.org"]
 
-  spec.summary     = "A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions, activesupport extensions"
+  spec.summary     = "A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions"
   spec.description = <<DESC
-RubySmart::Support is a toolkit of support libraries for Ruby & activesupport - major features includes GemInfo & ThreadInfo, as well core extensions for Ruby.
+RubySmart::Support is a toolkit of support libraries for Ruby - major features includes GemInfo & ThreadInfo, as well core extensions for Ruby & activesupport (if installed).
 DESC
 
   spec.homepage              = "https://github.com/ruby-smart/support"
   spec.license               = "MIT"
-  spec.required_ruby_version = ">= 2.3.0"
+  spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"]      = spec.homepage
   spec.metadata["source_code_uri"]   = "https://github.com/ruby-smart/support"
@@ -31,7 +31,7 @@ DESC
 
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'activesupport'
+  spec.add_development_dependency 'activesupport', ">= 4.0"
   spec.add_development_dependency 'rspec',  "~> 3.0"
   spec.add_development_dependency 'rake', "~> 13.0"
   spec.add_development_dependency 'simplecov',  '~> 0.21'

@@ -14,3 +14,6 @@
 /.idea
 /.ruby-version
 /.bundle-version
+
+# Github testing
+Gemfile.lock

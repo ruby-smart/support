@@ -2,7 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg)](https://badge.fury.io/rb/ruby_smart-support)
 
-A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & activesupport extensions
+A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions.
+
+_RubySmart::Support is a toolkit of support libraries for Ruby - major features includes GemInfo & ThreadInfo, as well core extensions for Ruby & activesupport (if installed)._
 
 -----
 
@@ -25,8 +27,23 @@ Or install it yourself as:
 ## Features
 * validate & check gems through GemInfo
 * resolve information about the current ruby's thread through ThreadInfo
+* extensions for Ruby
+  * *Array* `#only!`, `#only`
+  * *Float* `#round_down`, `#round_up`
+  * *Hash* `#to_md5`, `#product`
+  * *Object* `#numeric?`, `#boolean?`, `#missing_method?`, `#alias_missing_method`
+  * *String* `#to_boolean`, `#to_md5`
 
-## Module ThreadInfo
+* extensions for activesupport
+  * *Hash* `#only!`, `#without!`, `#deep_reject`
+
+* extensions for Rake-Tasks
+  * to `append` & `prepend` additional blocks
+  * to check task-state with `#invoked?`, `#performed?` & `#running?`
+
+-----
+
+## ThreadInfo module
 
 The `ThreadInfo` module provides information about the current thread.
 
@@ -53,27 +70,27 @@ ThreadInfo.info
 ```
 
 ### Available methods
-* rake?
-* rails?
-* console?
-* irb?
-* pry?
-* server?
-* rails_console?
-* io_console?
-* thread?
-* thread
-* thread_id
-* process_object_id
-* id
-* name
-* type
-* info
-* windowed?
-* winsize
-* stdout?
+* .rake?
+* .rails?
+* .console?
+* .irb?
+* .pry?
+* .server?
+* .rails_console?
+* .io_console?
+* .thread?
+* .thread
+* .thread_id
+* .process_object_id
+* .id
+* .name
+* .type
+* .info
+* .windowed?
+* .winsize
+* .stdout?
 
-## Module GemInfo
+## GemInfo module
 
 The `GemInfo` module provides information about the installed and loaded gems & features.
 
@@ -123,17 +140,41 @@ GemInfo.match?( '~> 1.1.0', '0.1.0')
 ```
 
 ### Available methods
-* installed
-* installed?
-* loaded
-* loaded?
-* active
-* active?
-* features
-* feature?
-* version
-* safe_require
-* match?
+* .installed
+* .installed?
+* .loaded
+* .loaded?
+* .active
+* .active?
+* .features
+* .feature?
+* .version
+* .safe_require
+* .match?
+
+## Rake::Task extensions
+
+With the new methods `append` & `prepend` you can now patch existing rake tasks.
+
+```ruby
+# lib/tasks/patch_db_migrate.rake
+
+namespace :db do
+  task(:migrate).prepend do |t|
+    if t.invoked?
+      puts "This task is invoked by another task!"
+    end
+    
+    if t.performed?
+      raise "This task already performed - no need to execute again!"
+    end
+  end
+
+  task(:migrate).append do |t|
+    puts "execution done!"
+  end
+end
+```
 
 -----
 
