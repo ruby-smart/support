@@ -1,6 +1,8 @@
 # RubySmart::Support
 
 [![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg)](https://badge.fury.io/rb/ruby_smart-support)
+[![Test](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
+[![RubySmart::Support Build Status](https://shields.io/github/workflow/status/ruby-smart/support/Test)](https://github.com/ruby-smart/support/actions)
 
 A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions.
 
