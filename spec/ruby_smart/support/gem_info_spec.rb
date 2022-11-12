@@ -124,15 +124,16 @@ RSpec.describe RubySmart::Support::GemInfo do
   describe ".match?" do
     it 'compares versions' do
       expect(RubySmart::Support::GemInfo.match?('4.3.0', '4.3.0')).to be true
-      expect(RubySmart::Support::GemInfo.match?('>= 3.0', '4.3.0')).to be true
-      expect(RubySmart::Support::GemInfo.match?( '~> 3.1', '3.3.0')).to be true
-      expect(RubySmart::Support::GemInfo.match?( '~> 1.1.0', '0.1.0')).to be false
+      expect(RubySmart::Support::GemInfo.match?('4.3.0', '>= 3.0')).to be true
+      expect(RubySmart::Support::GemInfo.match?( '3.3.0', '~> 3.1')).to be true
+      expect(RubySmart::Support::GemInfo.match?( '3.3.0', '~>', ' 3.1')).to be true
+      expect(RubySmart::Support::GemInfo.match?('0.1.0',  '~> 1.1.0')).to be false
     end
 
     it 'compares PRE versions' do
-      expect(RubySmart::Support::GemInfo.match?('> 4.3.0', '4.3.0.pre')).to be false
-      expect(RubySmart::Support::GemInfo.match?('>= 4.3.0.pre-1', '4.3.0.pre')).to be true
-      expect(RubySmart::Support::GemInfo.match?('>= 4.3.0.pre', '4.4.0')).to be true
+      expect(RubySmart::Support::GemInfo.match?('4.3.0.pre', '> 4.3.0')).to be false
+      expect(RubySmart::Support::GemInfo.match?( '4.3.0.pre', '>= 4.3.0.pre-1')).to be true
+      expect(RubySmart::Support::GemInfo.match?('4.4.0', '>= 4.3.0.pre')).to be true
     end
   end
 end

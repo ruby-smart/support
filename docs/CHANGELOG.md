@@ -1,5 +1,9 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.1.0] - 2022-11-12
+* **[ref]** `GemInfo.match?` method to provide method parameters more intuitive like `.match?('3.4.0', '>', '3.1.0')`
+* **[fix]** README
+
 ## [1.0.0] - 2022-11-08
 * **[add]** `GemInfo` module
 * **[add]** `ThreadInfo` module

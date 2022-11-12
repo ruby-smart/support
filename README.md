@@ -60,10 +60,10 @@ ThreadInfo.console?
 
 # returns the current thread name (rake / rails)
 ThreadInfo.name
-# > true
+# > "RakeTaskName"
 
 # returns true if thread has a 'window'
-ThreadInfo.window?
+ThreadInfo.windowed?
 # > true
 
 # returns the thread type string
@@ -130,14 +130,15 @@ GemInfo.safe_require('action_view/helpers/date_helper','actionview', '> 0.1.0')
 # compares two versions against each other
 GemInfo.match?('4.3.0', '4.3.0')
 # > true
-#
-GemInfo.match?('>= 3.0', '4.3.0')
+
+GemInfo.match?('4.3.0', '>= 3.0')
 # > true
-#
-GemInfo.match?( '~> 3.1', '3.3.0')
+
+# also works with split operator
+GemInfo.match?( '3.3.0', '~>', ' 3.1')
 # > true
-#
-GemInfo.match?( '~> 1.1.0', '0.1.0')
+
+GemInfo.match?( '0.1.0', '~> 1.1.0',)
 # > false
 ```
 
@@ -172,10 +173,18 @@ namespace :db do
     end
   end
 
-  task(:migrate).append do |t|
+  task(:migrate).append do |_t|
     puts "execution done!"
   end
 end
+```
+
+_So the execution of this rake task will now execute `prepend`, `default` & `append` blocks:_
+```shell
+rake db:migrate
+# > executes prepend
+# > executes previously defined block
+# > executes append block
 ```
 
 -----
@@ -186,7 +195,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [elasticsearch_record](https://github.com/ruby-smart/support).
+Bug reports and pull requests are welcome on [GitHub](https://github.com/ruby-smart/support).
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](./docs/CODE_OF_CONDUCT.md).
 
 ## License

@@ -36,7 +36,7 @@ module RubySmart
       # @param [nil, String] version - optional version requirement
       # @return [Boolean]
       def self.installed?(name, version = nil)
-        installed.key?(name) && (version.nil? || installed[name].any? { |gem_version| match?(version, gem_version) })
+        installed.key?(name) && (version.nil? || installed[name].any? { |gem_version| match?(gem_version, version) })
       end
 
       # returns a hash of all loaded gems with its current version
@@ -62,7 +62,7 @@ module RubySmart
       # @param [nil, String] version - optional version requirement
       # @return [Boolean]
       def self.loaded?(name, version = nil)
-        loaded.key?(name) && (version.nil? || match?(version, loaded[name]))
+        loaded.key?(name) && (version.nil? || match?( loaded[name], version))
       end
 
       # returns an array of all active gems
@@ -95,7 +95,7 @@ module RubySmart
       # @param [nil, String] version - optional version requirement
       # @return [Boolean] activated?
       def self.active?(name, version = nil)
-        active.include?(name) && (version.nil? || match?(version, version(name)))
+        active.include?(name) && (version.nil? || match?(self.version(name), version))
       end
 
       # returns an array of all loaded features
@@ -172,16 +172,22 @@ module RubySmart
       #   match?('4.3.0', '4.3.0')
       #   > true
       #
-      #   match?('>= 3.0', '4.3.0')
+      #   match?('4.3.0', '>= 3.0')
       #   > true
       #
-      #   match?( '~> 3.1', '3.3.0')
+      #   match?('3.3.0', '~> 3.1')
       #   > true
       #
-      #   match?( '~> 1.1.0', '0.1.0')
+      #   match?('3.3.0', '~>', '3.1')
+      #   > true
+      #
+      #   match?('0.1.0', '~> 1.1.0')
       #   > false
-      def self.match?(version_requirement, version_current)
-        return true if version_requirement.nil?
+      def self.match?(*args)
+        version_current = args.shift
+        version_requirement = args.join ' '
+
+        return true if version_requirement.nil? || version_requirement.strip == ''
 
         # split version compare operators
         version_requirement_str = version_requirement.gsub(/([=~>< ]+)/, '')
