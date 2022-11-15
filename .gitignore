@@ -17,3 +17,6 @@
 
 # Github testing
 Gemfile.lock
+
+# builds
+/*.gem

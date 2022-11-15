@@ -9,10 +9,10 @@ unless Array.method_defined? :only!
     #   ary.only!(:bar, :moon)
     #   > ary == [:bar]
     #
-    # @param [Object] *values
+    # @param [Array] values
     # @return [Array] self
     def only!(*values)
-      reject! {|value| !values.include?(value)}
+      reject! { |value| !values.include?(value) }
       self
     end
   end
@@ -27,7 +27,7 @@ unless Array.method_defined? :only
     #   ary.only(:bar, :bat, :moon)
     #   > [:bar, :bat]
     #
-    # @param [Object] *values
+    # @param [Array] values
     # @return [Array] ary
     def only(*values)
       dup.only!(*values)

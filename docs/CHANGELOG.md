@@ -1,5 +1,10 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.1.1] - 2022-11-15
+* **[fix]** `GemInfo` & `ThreadInfo` not being included on require 'ruby_smart-support'
+* **[fix]** yard comments
+* **[add]** `yard` gem for documentation
+
 ## [1.1.0] - 2022-11-12
 * **[ref]** `GemInfo.match?` method to provide method parameters more intuitive like `.match?('3.4.0', '>', '3.1.0')`
 * **[fix]** README
