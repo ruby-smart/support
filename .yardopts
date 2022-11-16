@@ -1,0 +1,5 @@
+./lib/**/*.rb
+--embed-mixins
+--markup=markdown
+-
+./docs/*.*

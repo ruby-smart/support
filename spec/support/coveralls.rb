@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'simplecov'
 
-SimpleCov.start do
+require 'coveralls'
+Coveralls.wear! do
   # exclude specs
   add_filter %r{^/spec/}
   # exclude gem related files
@@ -27,4 +27,6 @@ SimpleCov.start do
   add_group "Modules" do |file|
     file.filename.match(/\/(?:gem_info|thread_info)\.rb/)
   end
+
+  self.formatter = SimpleCov::Formatter::HTMLFormatter unless ENV.fetch('CI', nil)
 end

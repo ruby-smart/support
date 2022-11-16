@@ -15,8 +15,10 @@ module RubySmart
 
       # returns a hash of all installed gems with it's versions
       #
+      # @example
+      #
       #   GemInfo.installed
-      #   > {'bundler' => ['2.2.30', '1.2.3']}
+      #   # > {'bundler' => ['2.2.30', '1.2.3']}
       #
       # @return [Hash{<name> => Array[<version>]}] gem name-versions hash
       def self.installed
@@ -27,10 +29,10 @@ module RubySmart
       # the optional version requirement matches against any available version
       #
       #   GemInfo.installed?('bundler')
-      #   > true
+      #   # > true
       #
       #   GemInfo.installed?('bundler', '~> 3.0')
-      #   > false
+      #   # > false
       #
       # @param [String] name - the gem name
       # @param [nil, String] version - optional version requirement
@@ -41,8 +43,10 @@ module RubySmart
 
       # returns a hash of all loaded gems with its current version
       #
+      # @example
+      #
       #   GemInfo.loaded
-      #   > {'bundler' => '2.2.30'}
+      #   # > {'bundler' => '2.2.30'}
       #
       # @return [Hash{<name> => <version>}] gem name-version hash
       def self.loaded
@@ -53,10 +57,10 @@ module RubySmart
       # the optional version requirement matches against the loaded version
       #
       #   GemInfo.loaded?('bundler')
-      #   > true
+      #   # > true
       #
       #   GemInfo.loaded?('bundler', '~> 3.0')
-      #   > false
+      #   # > false
       #
       # @param [String] name - the gem name
       # @param [nil, String] version - optional version requirement

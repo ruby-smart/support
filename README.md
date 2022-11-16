@@ -1,6 +1,7 @@
 # RubySmart::Support
 
 [![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg)](https://badge.fury.io/rb/ruby_smart-support)
+[![Coverage Status](https://coveralls.io/repos/github/ruby-smart/support/badge.svg?branch=main)](https://coveralls.io/github/ruby-smart/support?branch=main)
 [![Test](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
 [![RubySmart::Support Build Status](https://shields.io/github/workflow/status/ruby-smart/support/Test)](https://github.com/ruby-smart/support/actions)
 
