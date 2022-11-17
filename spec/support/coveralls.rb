@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 require 'coveralls'
 Coveralls.wear! do
   # exclude specs

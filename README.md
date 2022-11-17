@@ -1,9 +1,12 @@
 # RubySmart::Support
 
+[![GitHub](https://img.shields.io/badge/github-ruby--smart/support-blue.svg)](http://github.com/ruby-smart/support)
+[![Documentation](https://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://rubydoc.info/gems/ruby_smart-support)
+
 [![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg)](https://badge.fury.io/rb/ruby_smart-support)
 [![Coverage Status](https://coveralls.io/repos/github/ruby-smart/support/badge.svg?branch=main)](https://coveralls.io/github/ruby-smart/support?branch=main)
-[![Test](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
-[![RubySmart::Support Build Status](https://shields.io/github/workflow/status/ruby-smart/support/Test)](https://github.com/ruby-smart/support/actions)
+[![Tests](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
+[![License](https://img.shields.io/github/license/ruby-smart/support)](docs/LICENSE.txt)
 
 A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions.
 
@@ -43,6 +46,9 @@ Or install it yourself as:
 * extensions for Rake-Tasks
   * to `append` & `prepend` additional blocks
   * to check task-state with `#invoked?`, `#performed?` & `#running?`
+
+
+
 
 -----
 
@@ -192,19 +198,19 @@ rake db:migrate
 
 ## Docs
 
-[CHANGELOG](./docs/CHANGELOG.md)
+[CHANGELOG](docs/CHANGELOG.md)
 
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/ruby-smart/support).
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](./docs/CODE_OF_CONDUCT.md).
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](docs/CODE_OF_CONDUCT.md).
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-A copy of the [LICENSE](./docs/LICENSE.txt) can be found @ the docs.
+A copy of the [LICENSE](docs/LICENSE.txt) can be found @ the docs.
 
 ## Code of Conduct
 
-Everyone interacting in the project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [CODE OF CONDUCT](./docs/CODE_OF_CONDUCT.md).
+Everyone interacting in the project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [CODE OF CONDUCT](docs/CODE_OF_CONDUCT.md).

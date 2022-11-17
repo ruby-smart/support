@@ -17,9 +17,10 @@ Gem::Specification.new do |spec|
   spec.license               = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.metadata['homepage_uri']    = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/ruby-smart/support'
-  spec.metadata['changelog_uri']   = "#{spec.metadata["source_code_uri"]}/blob/main/docs/CHANGELOG.md"
+  spec.metadata['homepage_uri']      = spec.homepage
+  spec.metadata['source_code_uri']   = 'https://github.com/ruby-smart/support'
+  spec.metadata['documentation_uri'] = 'https://rubydoc.info/gems/ruby_smart-support'
+  spec.metadata['changelog_uri']     = "#{spec.metadata["source_code_uri"]}/blob/main/docs/CHANGELOG.md"
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
@@ -35,5 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls_reborn', '~> 0.25'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'yard', '~> 0.9'
+  # spec.add_development_dependency 'yard', '~> 0.9'
 end

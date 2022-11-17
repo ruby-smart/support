@@ -1,5 +1,4 @@
-./lib/**/*.rb
 --embed-mixins
 --markup=markdown
--
-./docs/*.*
+--files docs/*.*
+--plugin relative_markdown_links
