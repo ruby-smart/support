@@ -3,11 +3,10 @@
 require_relative 'lib/ruby_smart/support/version'
 
 Gem::Specification.new do |spec|
-  spec.name    = 'ruby_smart-support'
-  spec.version = RubySmart::Support.version
-  spec.authors = ['Tobias Gonsior']
-  spec.email   = ['info@ruby-smart.org']
-
+  spec.name        = 'ruby_smart-support'
+  spec.version     = RubySmart::Support.version
+  spec.authors     = ['Tobias Gonsior']
+  spec.email       = ['info@ruby-smart.org']
   spec.summary     = 'A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions'
   spec.description = <<~DESC
     RubySmart::Support is a toolkit of support libraries for Ruby - major features includes GemInfo & ThreadInfo, as well core extensions for Ruby & activesupport (if installed).
@@ -36,5 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls_reborn', '~> 0.25'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  # spec.add_development_dependency 'yard', '~> 0.9'
+  spec.add_development_dependency 'yard', '~> 0.9'
 end

@@ -3,10 +3,11 @@
 [![GitHub](https://img.shields.io/badge/github-ruby--smart/support-blue.svg)](http://github.com/ruby-smart/support)
 [![Documentation](https://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://rubydoc.info/gems/ruby_smart-support)
 
-[![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg)](https://badge.fury.io/rb/ruby_smart-support)
-[![Coverage Status](https://coveralls.io/repos/github/ruby-smart/support/badge.svg?branch=main)](https://coveralls.io/github/ruby-smart/support?branch=main)
-[![Tests](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
+[![Gem Version](https://badge.fury.io/rb/ruby_smart-support.svg?kill_cache=1)](https://badge.fury.io/rb/ruby_smart-support)
 [![License](https://img.shields.io/github/license/ruby-smart/support)](docs/LICENSE.txt)
+
+[![Coverage Status](https://coveralls.io/repos/github/ruby-smart/support/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/ruby-smart/support?branch=main)
+[![Tests](https://github.com/ruby-smart/support/actions/workflows/ruby.yml/badge.svg)](https://github.com/ruby-smart/support/actions/workflows/ruby.yml)
 
 A toolkit of support libraries including GemInfo, ThreadInfo, Ruby core extensions & optionally activesupport extensions.
 

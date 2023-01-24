@@ -1,5 +1,10 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.2.0] - 2023-01-24
+* **[ref]** `GemInfo` methods (active -> required & active? -> required?)
+* **[ref]** simplify `GemInfo.match?`method
+* **[fix]** `Hash#to_md5` method to use `#inspect` instead of `#to_s`
+
 ## [1.1.1] - 2022-11-15
 * **[fix]** `GemInfo` & `ThreadInfo` not being included on require 'ruby_smart-support'
 * **[fix]** yard comments

@@ -53,7 +53,7 @@ module RubySmart
         Hash[::Gem.loaded_specs.values.map { |g| [g.name, g.version.to_s] }.sort]
       end
 
-      # returns true if the provided gem name is loaded.
+      # returns true if the provided gem name is loaded (defined within any Gemfile), but must not be required yet.
       # the optional version requirement matches against the loaded version
       #
       #   GemInfo.loaded?('bundler')
@@ -69,13 +69,13 @@ module RubySmart
         loaded.key?(name) && (version.nil? || match?( loaded[name], version))
       end
 
-      # returns an array of all active gems
+      # returns an array of all required gems
       #
-      #   GemInfo.active
+      #   GemInfo.required
       #   > ['bundler']
       #
       # @return [Array<name>}] gem names
-      def self.active
+      def self.required
         $LOADED_FEATURES.
           select { |feature| feature.match(GEM_PATH_REGEXP) }.
           map { |feature|
@@ -86,20 +86,20 @@ module RubySmart
           sort
       end
 
-      # returns true if the provided gem name is active.
-      # the optional version requirement matches against the *loaded* version
+      # returns true if the provided gem name is required.
+      # the optional version matches against the *required* version
       #
-      #   GemInfo.active?('bundler')
+      #   GemInfo.required?('bundler')
       #   > true
       #
-      #   GemInfo.active?('bundler', '~> 3.0')
+      #   GemInfo.required?('bundler', '~> 3.0')
       #   > false
       #
       # @param [String] name - the gem name
       # @param [nil, String] version - optional version requirement
       # @return [Boolean] activated?
-      def self.active?(name, version = nil)
-        active.include?(name) && (version.nil? || match?(self.version(name), version))
+      def self.required?(name, version = nil)
+        required.include?(name) && (version.nil? || match?(self.version(name), version))
       end
 
       # returns an array of all loaded features
@@ -158,7 +158,7 @@ module RubySmart
       # @return [Boolean]
       def self.safe_require(path, gem = nil, version = nil)
         # check for missing gem (nicely check if the feature name differs to the gem name)
-        return false if !gem.nil? && path != gem && !active?(gem, version)
+        return false if !gem.nil? && path != gem && !required?(gem, version)
 
         # try to require the feature
         begin
@@ -189,28 +189,23 @@ module RubySmart
       #   > false
       def self.match?(*args)
         version_current = args.shift
-        version_requirement = args.join ' '
+        version_requirement = args.join(' ')
 
         return true if version_requirement.nil? || version_requirement.strip == ''
 
-        # split version compare operators
-        version_requirement_str = version_requirement.gsub(/([=~>< ]+)/, '')
-        version_requirement_op  = $1
-
-        # create plain versions without compare operators
         gem_version_current     = Gem::Version.new(version_current)
-        gem_version_requirement = Gem::Version.new(version_requirement_str)
+        gem_version_requirement = Gem::Requirement.new(version_requirement)
 
         # check if required version is PRE & current is NOT
         if gem_version_requirement.prerelease? && !gem_version_current.prerelease?
-          version_requirement = "#{version_requirement_op}#{gem_version_requirement.release}"
+          gem_version_requirement = Gem::Requirement.new("#{gem_version_requirement.requirements[0][0]} #{gem_version_requirement.requirements[0][1].release.version}")
         elsif gem_version_requirement.prerelease? != gem_version_current.prerelease?
           # check if required version PRE doesn't equal current version PRE
-          version_current = gem_version_current.release.to_s
+          gem_version_current = gem_version_current.release
         end
         # else is not required here: either its PRE && PRE || !PRE && !PRE
 
-        Gem::Dependency.new('', version_requirement).match?('', version_current)
+        gem_version_requirement.satisfied_by?(gem_version_current)
       end
     end
   end

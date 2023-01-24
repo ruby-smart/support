@@ -55,29 +55,29 @@ RSpec.describe RubySmart::Support::GemInfo do
     end
   end
 
-  describe ".active" do
+  describe ".required" do
     it 'returns an array of active gem names' do
-      expect(RubySmart::Support::GemInfo.active).to be_a Array
-      expect(RubySmart::Support::GemInfo.active).to include 'rspec-core'
-      expect(RubySmart::Support::GemInfo.active).to include 'rake'
+      expect(RubySmart::Support::GemInfo.required).to be_a Array
+      expect(RubySmart::Support::GemInfo.required).to include 'rspec-core'
+      expect(RubySmart::Support::GemInfo.required).to include 'rake'
     end
   end
 
-  describe ".active?" do
-    it 'returns true for a active gem' do
-      expect(RubySmart::Support::GemInfo.active?('rspec-core')).to be true
+  describe ".required?" do
+    it 'returns true for a required gem' do
+      expect(RubySmart::Support::GemInfo.required?('rspec-core')).to be true
     end
 
     it 'with version requirement' do
-      expect(RubySmart::Support::GemInfo.active?('rake', '> 1.0.0')).to be true
+      expect(RubySmart::Support::GemInfo.required?('rake', '> 1.0.0')).to be true
     end
 
     it 'with wrong version requirement' do
-      expect(RubySmart::Support::GemInfo.active?('rake', '> 999.0.0')).to be false
+      expect(RubySmart::Support::GemInfo.required?('rake', '> 999.0.0')).to be false
     end
 
     it 'returns false for unknown gem' do
-      expect(RubySmart::Support::GemInfo.active?('unknown and invalid gem')).to be false
+      expect(RubySmart::Support::GemInfo.required?('unknown and invalid gem')).to be false
     end
   end
 

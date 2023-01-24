@@ -2,10 +2,10 @@
 
 unless Hash.method_defined? "to_md5"
   class Hash
-    # returns the md5 of any hash by using the to_s method
+    # returns the md5 of any hash by using the +#inspect+ method
     # @return [String] md5
     def to_md5
-      Digest::MD5.hexdigest(Hash[self.sort].to_s)
+      Digest::MD5.hexdigest(Hash[self.sort].inspect)
     end
   end
 end
