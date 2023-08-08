@@ -7,7 +7,7 @@ unless Enumerator.method_defined? :from_hash
     #
     # @example
     #   ary = [{a: 34, b: 12}, {a: 19, c: 4}, {b: 3, c: 11}]
-    #   ary.with_hash(:a)
+    #   ary.map.from_hash(:a)
     #   > [34, 19, nil]
     #
     # @param [Object] key

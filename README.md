@@ -40,6 +40,7 @@ Or install it yourself as:
   * *Hash* `#to_md5`, `#product`
   * *Object* `#numeric?`, `#boolean?`, `#missing_method?`, `#alias_missing_method`
   * *String* `#to_boolean`, `#to_md5`
+  * *Enumerator* `#from_hash`
 
 * extensions for activesupport
   * *Hash* `#only!`, `#without!`, `#deep_reject`
@@ -119,6 +120,11 @@ GemInfo.installed
 GemInfo.loaded
 # > {'bundler' => '2.2.30', ...}
 
+# returns a hash of all loaded gems with its current license
+# (gems from the Gemfile)
+GemInfo.licenses
+# > {'bundler' => 'MIT', ...}
+
 # returns an array of all active gems
 GemInfo.active
 # > ['bundler', ...]
@@ -155,6 +161,7 @@ GemInfo.match?( '0.1.0', '~> 1.1.0',)
 * .installed?
 * .loaded
 * .loaded?
+* .licenses
 * .active
 * .active?
 * .features
@@ -194,6 +201,21 @@ rake db:migrate
 # > executes previously defined block
 # > executes append block
 ```
+
+
+## Enumerator extensions
+
+With the new method `from_hash` you can now easily map values from an array of hashes.
+
+```ruby
+ary = [{a: 34, b: 12}, {a: 19, c: 4}, {b: 3, c: 11}]
+ary.map.from_hash(:a)
+# > [34, 19, nil]
+
+```
+
+
+
 
 -----
 
