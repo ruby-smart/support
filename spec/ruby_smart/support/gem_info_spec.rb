@@ -63,6 +63,13 @@ RSpec.describe RubySmart::Support::GemInfo do
     end
   end
 
+  describe ".licenses" do
+    it 'returns a hash of loaded gem licenses' do
+      expect(RubySmart::Support::GemInfo.licenses).to be_a Hash
+      expect(RubySmart::Support::GemInfo.licenses['rake']).to eq 'MIT'
+    end
+  end
+
   describe ".required?" do
     it 'returns true for a required gem' do
       expect(RubySmart::Support::GemInfo.required?('rspec-core')).to be true

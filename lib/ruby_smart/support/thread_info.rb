@@ -98,7 +98,7 @@ module RubySmart
       # @return [String] name
       def self.name
         return Rake.application.top_level_tasks.first.to_s if rake?
-        return Rails.application.to_s.split('::').first if rails?
+        return Rails.application.class.name if rails?
         ''
       end
 
@@ -112,9 +112,7 @@ module RubySmart
       # returns the thread type string
       # @return [String] thread-info string
       def self.info
-        strs = ["$#{id}", "[##{process_object_id}]","@ #{type}"]
-        strs << " :: #{name}" if name != ''
-        strs.join ' '
+        "$(#{id}) -> [##{process_object_id}] @ #{type} :: #{self.name}"
       end
 
       # returns true if thread has a 'window'
@@ -127,7 +125,7 @@ module RubySmart
       # @return [Array<rows, columns>] winsize
       def self.winsize
         return IO.console.winsize if io_console?
-        return [ENV['ROWS'], ENV['COLUMNS']] unless ENV['ROWS'].nil? && ENV['COLUMNS'].nil?
+        return [ENV['ROWS'].to_i, ENV['COLUMNS'].to_i] unless ENV['ROWS'].nil? || ENV['COLUMNS'].nil?
         [0, 0]
       end
 

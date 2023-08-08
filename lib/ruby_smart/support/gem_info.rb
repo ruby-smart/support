@@ -53,6 +53,18 @@ module RubySmart
         Hash[::Gem.loaded_specs.values.map { |g| [g.name, g.version.to_s] }.sort]
       end
 
+      # returns a hash of all loaded gems with it's licenses
+      #
+      # @example
+      #
+      #   GemInfo.licenses
+      #   # > {'bundler' => 'MIT', 'hashery' => 'BSD-2-Clause'}
+      #
+      # @return [Hash{<name> => <license>}] licenses
+      def self.licenses
+        Hash[::Gem.loaded_specs.values.map { |g| [g.name, g.license || '?'] }.sort]
+      end
+
       # returns true if the provided gem name is loaded (defined within any Gemfile), but must not be required yet.
       # the optional version requirement matches against the loaded version
       #

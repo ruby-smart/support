@@ -1,5 +1,12 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.3.0] - 2023-08-08
+* **[add]** `Enumerator.from_hash` to easily resolve values from Array-of-Hashes (use: ary.map.from_hash(key))
+* **[add]** `RubySmart::Support::GemInfo.licenses` to resolve a hash of licences per loaded gem
+* **[fix]** `RubySmart::Support::ThreadInfo.winsize`-detection for debug-ENVs
+* **[ref]** `RubySmart::Support::ThreadInfo.name` to show full application namespace
+* **[ref]** `RubySmart::Support::ThreadInfo.info` to show a optimized info-string
+
 ## [1.2.0] - 2023-01-24
 * **[ref]** `GemInfo` methods (active -> required & active? -> required?)
 * **[ref]** simplify `GemInfo.match?`method

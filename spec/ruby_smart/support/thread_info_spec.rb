@@ -42,6 +42,21 @@ RSpec.describe RubySmart::Support::ThreadInfo do
     it 'should return an array' do
       expect(RubySmart::Support::ThreadInfo.winsize).to be_a Array
     end
+
+    it 'resolves from ENV' do
+      expect(RubySmart::Support::ThreadInfo).to receive(:io_console?).and_return(false)
+
+      orig_rows, ENV['ROWS'] = ENV['ROWS'], '12'
+      orig_columns, ENV['COLUMNS'] = ENV['COLUMNS'], '234'
+
+      expect(RubySmart::Support::ThreadInfo.winsize).to eq [12,234]
+      ENV['ROWS'], ENV['COLUMNS'] = orig_rows, orig_columns
+    end
+
+    it 'should return a fallback array' do
+      expect(RubySmart::Support::ThreadInfo).to receive(:io_console?).and_return(false)
+      expect(RubySmart::Support::ThreadInfo.winsize).to eq [0,0]
+    end
   end
 
   # PLEASE NOTE: The following methods are hardly to test due different gem requirements & scenarios

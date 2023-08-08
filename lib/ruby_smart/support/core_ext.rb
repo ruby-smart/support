@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "core_ext/ruby/array"
+require_relative "core_ext/ruby/enumerator"
 require_relative "core_ext/ruby/float"
 require_relative "core_ext/ruby/hash"
 require_relative "core_ext/ruby/object"
