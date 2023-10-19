@@ -75,6 +75,10 @@ RSpec.describe RubySmart::Support::ThreadInfo do
       expect(RubySmart::Support::ThreadInfo.server?).to_not be_nil
     end
 
+    it '.sidekiq?' do
+      expect(RubySmart::Support::ThreadInfo.sidekiq?).to_not be_nil
+    end
+
     it '.stdout?' do
       expect(RubySmart::Support::ThreadInfo.stdout?).to_not be_nil
     end

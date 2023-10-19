@@ -1,5 +1,8 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.4.0] - 2023-10-19
+* **[ref]** `RubySmart::Support::ThreadInfo.sidekiq?`-detection to determinate if the current thread is a sidekiq process
+
 ## [1.3.0] - 2023-08-08
 * **[add]** `Enumerator.from_hash` to easily resolve values from Array-of-Hashes (use: ary.map.from_hash(key))
 * **[add]** `RubySmart::Support::GemInfo.licenses` to resolve a hash of licences per loaded gem

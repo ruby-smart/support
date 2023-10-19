@@ -7,7 +7,7 @@ module RubySmart
     module ThreadInfo
 
       # defines a array of types which will be checked by resolving the current thread type
-      TYPE_ORDER = [:rake, :console, :server].freeze
+      TYPE_ORDER = [:rake, :console, :sidekiq, :server].freeze
 
       # returns true if this is a running rake process
       # @return [Boolean]
@@ -37,6 +37,12 @@ module RubySmart
       # @return [Boolean]
       def self.pry?
         !!defined?(Pry)
+      end
+
+      # returns true if this is a running 'sidekiq' server process.
+      # @return [Boolean]
+      def self.sidekiq?
+        !!defined?(Sidekiq) && Sidekiq.server?
       end
 
       # returns true if this is a running server process.

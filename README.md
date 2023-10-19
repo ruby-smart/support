@@ -86,6 +86,7 @@ ThreadInfo.info
 * .console?
 * .irb?
 * .pry?
+* .sidekiq?
 * .server?
 * .rails_console?
 * .io_console?
