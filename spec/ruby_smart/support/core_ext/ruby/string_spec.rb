@@ -5,16 +5,22 @@ require 'spec_helper'
 RSpec.describe 'String extensions' do
   describe "#to_boolean" do
     it "should be false" do
-      expect("This is a very nice string".to_boolean).to eq false
-      expect("01".to_boolean).to eq false
-      expect("truly".to_boolean).to eq false
+      expect("false".to_boolean).to eq false
+      expect("Off".to_boolean).to eq false
+      expect("OFF".to_boolean).to eq false
+      expect("f".to_boolean).to eq false
+      expect("F".to_boolean).to eq false
+      expect("".to_boolean).to eq false
     end
 
     it "should be true" do
+      expect("01".to_boolean).to eq true
+      expect("This is a very nice string".to_boolean).to eq true
       expect("1".to_boolean).to eq true
       expect("TrUe".to_boolean).to eq true
       expect("TRUE".to_boolean).to eq true
       expect("true".to_boolean).to eq true
+      expect("truly".to_boolean).to eq true
     end
   end
 

@@ -7,7 +7,7 @@ unless String.method_defined? "to_boolean"
     # converts a string to 'boolean'
     # @return [Boolean] bool
     def to_boolean
-      ['true','1'].include? self.downcase
+      !["0", "f", "false", "off",''].include?(self.downcase)
     end
   end
 end

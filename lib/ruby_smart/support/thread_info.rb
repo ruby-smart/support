@@ -52,6 +52,12 @@ module RubySmart
         !!defined?(Rails::Server)
       end
 
+      # returns true, if this runs in a debug environment (like: ruby-debug-ide / Device)
+      # @return [Boolean]
+      def self.debugger?
+        !!defined?(Debugger.handler)
+      end
+
       # returns true if this is a running rails console process
       # @return [Boolean]
       def self.rails_console?

@@ -1,5 +1,9 @@
 # RubySmart::Support - CHANGELOG
 
+## [1.5.0] - 2024-07-03
+* **[add]** `RubySmart::Support::ThreadInfo.debugger?`-detection to determinate if a **Debugger** gem is active
+* **[fix]** `String#to_boolean`-method to detect false-values (which makes all other values become true - similar to `::ActiveRecord::Type::Boolean`)
+
 ## [1.4.0] - 2023-10-19
 * **[ref]** `RubySmart::Support::ThreadInfo.sidekiq?`-detection to determinate if the current thread is a sidekiq process
 

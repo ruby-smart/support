@@ -32,8 +32,8 @@ Or install it yourself as:
     $ gem install ruby_smart-support
 
 ## Features
-* validate & check gems through GemInfo
-* resolve information about the current ruby's thread through ThreadInfo
+* validate & check gems through **GemInfo**
+* resolve information about the current ruby's thread through **ThreadInfo**
 * extensions for Ruby
   * *Array* `#only!`, `#only`
   * *Float* `#round_down`, `#round_up`
@@ -48,9 +48,6 @@ Or install it yourself as:
 * extensions for Rake-Tasks
   * to `append` & `prepend` additional blocks
   * to check task-state with `#invoked?`, `#performed?` & `#running?`
-
-
-
 
 -----
 
@@ -88,6 +85,7 @@ ThreadInfo.info
 * .pry?
 * .sidekiq?
 * .server?
+* .debugger?
 * .rails_console?
 * .io_console?
 * .thread?

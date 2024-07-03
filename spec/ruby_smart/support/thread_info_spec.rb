@@ -91,6 +91,10 @@ RSpec.describe RubySmart::Support::ThreadInfo do
       expect(RubySmart::Support::ThreadInfo.io_console?).to_not be_nil
     end
 
+    it '.debugger?' do
+      expect(RubySmart::Support::ThreadInfo.debugger?).to_not be_nil
+    end
+
     it '.type' do
       expect(RubySmart::Support::ThreadInfo.type).to_not be_nil
     end
