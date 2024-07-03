@@ -231,7 +231,7 @@ This project is intended to be a safe, welcoming space for collaboration, and co
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-A copy of the [LICENSE](docs/LICENSE.txt) can be found @ the docs.
+A copy of the [LICENSE](docs/LICENSE.md) can be found @ the docs.
 
 ## Code of Conduct
 
